@@ -1,13 +1,16 @@
 import MetaData from './components/Metadata'
 import Landing from './components/Landing'
 import Header from './components/Header';
+import styles from '../styles/home.module.css'
 
 export default function Home() {
   return (
     <div>
       <MetaData />
       <Header />
-      <Landing />
+      <div className={styles.centered}>
+        <Landing />
+      </div>
     </div>
   )
 }
