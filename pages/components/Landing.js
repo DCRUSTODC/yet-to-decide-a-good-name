@@ -1,32 +1,16 @@
-import { useState, useEffect } from 'react'
+import Link from 'next/link'
+import MapChart from './MapChart'
+import ReactTooltip from "react-tooltip";
+import { useState } from 'react'
+import styles from '../../styles/map.module.css'
 
 function Landing() {
-    const [data, setData] = useState(null)
-    const [isLoading, setLoading] = useState(false)
-
-    useEffect(() => {
-        setLoading(true)
-        fetch('/api/hello')
-            .then((res) => res.json())
-            .then((data) => {
-                setData(data)
-                setLoading(false)
-            })
-    }, [])
-
-    if (isLoading) return <p>Loading...</p>
-    if (!data) return <p>No profile data</p>
+    const [content, setContent] = useState("");
 
     return (
-        <div>
-            {
-                data.map((person) => (
-                    <div key={person.id}>
-                        <h1>{person.name}</h1>
-                        <p>{person.age}</p>
-                    </div>
-                ))
-            }
+        <div className={styles.map}>
+            <MapChart setTooltipContent={setContent} />
+            <ReactTooltip>{content}</ReactTooltip>
         </div>
     )
 }

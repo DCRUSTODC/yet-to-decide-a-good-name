@@ -1,11 +1,12 @@
-import styles from '../styles/Home.module.css'
 import MetaData from './components/Metadata'
 import Landing from './components/Landing'
+import Header from './components/Header';
 
 export default function Home() {
   return (
-    <div className={styles.APP}>
+    <div>
       <MetaData />
+      <Header />
       <Landing />
     </div>
   )
