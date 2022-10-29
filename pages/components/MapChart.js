@@ -7,10 +7,16 @@ import {
     Geography
 } from "react-simple-maps";
 import graph from '../../public/features.json'
+import styles from '../../styles/home.module.css'
 
 const MapChart = ({ setTooltipContent }) => {
     return (
         <div data-tip="">
+            <div className={styles.centered}>
+                <h3>
+                    Population growth rates across the world
+                </h3>
+            </div>
             <ComposableMap>
                 <ZoomableGroup>
                     <Geographies geography={graph}>
