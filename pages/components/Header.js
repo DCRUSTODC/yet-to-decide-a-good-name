@@ -161,7 +161,7 @@ export default function Header() {
                             component="div"
                             sx={{ display: { xs: 'none', sm: 'block' } }}
                         >
-                            Global Statistics Convention
+                            <div>Global Statistics Convention</div>
                         </Typography>
                         <Search>
                             <SearchIconWrapper>

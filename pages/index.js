@@ -5,12 +5,12 @@ import styles from '../styles/home.module.css'
 
 export default function Home() {
   return (
-    <div>
+    <>
       <MetaData />
       <Header />
       <div className={styles.centered}>
         <Landing />
       </div>
-    </div>
+    </>
   )
 }

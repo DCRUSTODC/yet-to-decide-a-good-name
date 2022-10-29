@@ -1,11 +1,12 @@
 import React, { memo } from "react"
+React.useLayoutEffect = React.useEffect;
 import {
     ZoomableGroup,
     ComposableMap,
     Geographies,
     Geography
 } from "react-simple-maps";
-import graph from '../../data/features.json'
+import graph from '../../public/features.json'
 
 const MapChart = ({ setTooltipContent }) => {
     return (
@@ -19,7 +20,7 @@ const MapChart = ({ setTooltipContent }) => {
                                     key={geo.rsmKey}
                                     geography={geo}
                                     onMouseEnter={() => {
-                                        setTooltipContent(`${geo.properties.name}`);
+                                        setTooltipContent(`${geo.properties.name}` + ` ${geo.properties.rate || ''}`);
                                     }}
                                     onMouseLeave={() => {
                                         setTooltipContent("");
@@ -30,12 +31,13 @@ const MapChart = ({ setTooltipContent }) => {
                                             outline: "none"
                                         },
                                         hover: {
-                                            fill: "#972fff",
-                                            outline: "none"
+                                            fill: "rgb(255, 42, 255)",
                                         },
                                         pressed: {
-                                            fill: "#E42",
-                                            outline: "none"
+                                            fill: "#fff",
+                                            outline: "#fff",
+                                            outlineWidth: 1,
+                                            outlineStyle: "dashed"
                                         }
                                     }}
                                 />
